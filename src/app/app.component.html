@@ -1,16 +1,33 @@
+<h1>Term Deposit Calculator</h1>
+
 <form (ngSubmit)="calculate()">
-  <input type="number" [(ngModel)]="form.amount" name="amount" placeholder="Start Amount" required />
-  <input type="number" [(ngModel)]="form.rate" name="rate" placeholder="Interest Rate (%)" required />
-  <input type="number" [(ngModel)]="form.term" name="term" placeholder="Term (in years)" required />
-  <select [(ngModel)]="form.frequency" name="frequency" required>
-    <option value="monthly">Monthly</option>
-    <option value="quarterly">Quarterly</option>
-    <option value="annually">Annually</option>
-    <option value="maturity">Maturity</option>
-  </select>
+  <div class="form-group">
+    <label for="amount">Amount</label>
+    <input type="number" [(ngModel)]="form.amount" name="amount" placeholder="Starting Amount" required />
+  </div>
+  
+  <div class="form-group">
+    <label for="rate">Interest Rate (%)</label>
+    <input type="number" [(ngModel)]="form.rate" name="rate" placeholder="Interest Rate (%)" required />
+  </div>
+
+  <div class="form-group">
+    <label for="term">Term</label>
+    <input type="number" [(ngModel)]="form.term" name="term" placeholder="Term (in years)" required />
+  </div>
+
+  <div class="form-group">
+    <label for="frequency">Interest Frequency</label>
+    <select [(ngModel)]="form.frequency" name="frequency" required>
+      <option value="monthly">Monthly</option>
+      <option value="quarterly">Quarterly</option>
+      <option value="annually">Annually</option>
+      <option value="maturity">Maturity</option>
+    </select>
+  </div>
   <button type="submit">Calculate</button>
 </form>
 
 @if (result !== null) {
-  <p>{{ result | currency:'AUD' }}</p>
+  <p>Final Balance: {{ result | currency:'AUD' }}</p>
 }

@@ -1,6 +1,63 @@
 # FerociaTermDepositCalc
 
+This Angular app calculates the final balance of term deposit based on user input.
+This is built for the Ferocia's take home coding challenge and demonstrates simple clean code structures and UI implementation of the calculator
+
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.4.
+
+## Features
+
+- Accepts:
+  - Initial deposit amount
+  - Annual interest rate (%)
+  - Term (in years)
+  - Interest payout frequency (monthly, quarterly, annually, or at maturity)
+- Calculates final balance using compound or simple interest logic
+- Outputs final result in AUD currency
+- Unit tested with Karma
+
+---
+
+
+## Calculation Logic
+
+### Compound Interest
+
+Used for monthly, quarterly, or annual frequencies:
+
+\[
+A = P \times \left(1 + \frac{r}{n} \right)^{nt}
+\]
+
+Where:
+- `P` = principal
+- `r` = annual interest rate
+- `n` = number of compounding periods per year
+- `t` = term in years
+
+### Simple Interest
+
+Used when interest is paid at maturity:
+
+\[
+A = P \times (1 + rt)
+\]
+
+---
+
+## Sample
+
+**Input:**
+- Amount: $10,000  
+- Interest: 1%  
+- Term: 3 years  
+- Frequency: Monthly
+
+**Output:**
+- Sample Final Balance: **$10,304.54**
+
+---
+
 
 ## Development server
 
@@ -11,20 +68,6 @@ ng serve
 ```
 
 Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
 
 ## Building
 
