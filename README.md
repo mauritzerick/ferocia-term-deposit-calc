@@ -25,11 +25,10 @@ This project was generated using [Angular CLI](https://github.com/angular/angula
 
 Used for monthly, quarterly, or annual frequencies:
 
-\[
-A = P \times \left(1 + \frac{r}{n} \right)^{nt}
-\]
+A = P × (1 + r/n)<sup>nt</sup>
 
 Where:
+- `A`= final amount
 - `P` = principal
 - `r` = annual interest rate
 - `n` = number of compounding periods per year
