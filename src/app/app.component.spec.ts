@@ -1,29 +1,26 @@
-import { TestBed } from '@angular/core/testing';
-import { AppComponent } from './app.component';
+import { CalculatorService, Frequency } from './calculator.service';
 
-describe('AppComponent', () => {
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [AppComponent],
-    }).compileComponents();
+describe('CalculatorService', () => {
+  let service: CalculatorService;
+
+  beforeEach(() => {
+    service = new CalculatorService();
   });
 
-  it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
-  });
+  it('should calculate final balance correctly when interest is paid at maturity (simple interest', () => {
+    // Arrange
+    const principal = 10000;
+    const annualRate = 1.1; 
+    const years = 3;
+    const frequency: Frequency = 'maturity';
 
-  it(`should have the 'ferocia-term-deposit-calc' title`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('ferocia-term-deposit-calc');
-  });
+    // Formula: A = P * (1 + r * t)
+    const expected = principal * (1 + (annualRate / 100) * years);
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, ferocia-term-deposit-calc');
-  });
-});
+    // Action
+    const result = service.calculate(principal, annualRate, years, frequency);
+
+    // Assert
+    expect(result).toBeCloseTo(expected, 2); // 2 as in decimal places
+  })
+})
