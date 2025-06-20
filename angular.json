@@ -95,6 +95,17 @@
             ],
             "scripts": []
           }
+        },
+        "e2e": {
+          "builder": "playwright-ng-schematics:playwright",
+          "options": {
+            "devServerTarget": "ferocia-term-deposit-calc:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "ferocia-term-deposit-calc:serve:production"
+            }
+          }
         }
       }
     }

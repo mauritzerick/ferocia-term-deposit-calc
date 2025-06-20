@@ -86,12 +86,12 @@ To execute unit tests with the [Karma](https://karma-runner.github.io) test runn
 ng test
 ```
 
-## Running end-to-end tests
+## Running unit tests without browser (CLI  mode)
 
-For end-to-end (e2e) testing, run:
+To execute unit tests without browser, use the following command:
 
 ```bash
-ng e2e
+ng test --watch=false --browsers=ChromeHeadless
 ```
 
 Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
